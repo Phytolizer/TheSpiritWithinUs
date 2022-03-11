@@ -41,6 +41,7 @@ find_program(DOT dot REQUIRED)
 
 add_custom_command(
     OUTPUT "${PROJECT_BINARY_DIR}/object.c"
+    DEPENDS "${PROJECT_SOURCE_DIR}/src/object.awk"
     COMMAND
         "${AWK}" -f "${PROJECT_SOURCE_DIR}/src/object.awk" -v pass=c1
         "${PROJECT_SOURCE_DIR}/src/object.txt" >
@@ -52,6 +53,7 @@ add_custom_command(
 )
 add_custom_command(
     OUTPUT "${PROJECT_BINARY_DIR}/include/object.h"
+    DEPENDS "${PROJECT_SOURCE_DIR}/src/object.awk"
     COMMAND "${CMAKE_COMMAND}" -E make_directory "include"
     COMMAND
         "${AWK}" -f "${PROJECT_SOURCE_DIR}/src/object.awk" -v pass=h

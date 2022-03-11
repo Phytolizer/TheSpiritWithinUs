@@ -3,7 +3,9 @@
        count = 0;
        obj = "";
        if (pass == "h") {
-          print "#include <stdbool.h>";
+          print "#ifndef OBJECT_H_";
+          print "\n#define OBJECT_H_";
+          print "\n#include <stdbool.h>";
        }
        if (pass == "c2") {
           print "\nstatic bool alwaysTrue(void) { return true; }";
@@ -66,6 +68,7 @@
                 "((obj) != NULL && (*(obj)->condition)())";
           print "\n#define forEachObject(obj)\t" \
                 "for (obj = objs; obj < endOfObjs; obj++) if (validObject(obj))";
+          print "\n#endif";
        }
     }
     function outputRecord(separator)

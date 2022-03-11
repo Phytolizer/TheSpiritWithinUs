@@ -1,7 +1,9 @@
-#define MAX_PARAMS  26
+#include <stdbool.h>
 
-extern const char *params[];
+#define MAX_PARAMS 26
 
-#define paramByLetter(letter)   (params + (letter) - 'A')
+extern const char* params[];
 
-extern bool matchCommand(const char *src, const char *pattern);
+#define paramByLetter(letter) (params + (letter) - 'A')
+
+extern bool matchCommand(const char* src, const char* pattern);
