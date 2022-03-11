@@ -4,3 +4,4 @@ spirit
 *.zip
 object.h
 object.c
+build/
